@@ -1,8 +1,17 @@
-# sudo apt-get install -y build-essential libcrypto++-dev libsqlite3-dev libboost-all-dev
+
+if ! sudo true
+then
+  echo 'Unable to obtain superuser privilege'
+  exit 2
+fi
+
+sudo apt-get install -y build-essential libcrypto++-dev libsqlite3-dev libboost-all-dev
+
 git clone https://github.com/named-data/ndn-cxx
 cd ndn-cxx
 ./waf configure --with-examples
 ./waf
+
 sudo ./waf install
 sudo ldconfig
 
