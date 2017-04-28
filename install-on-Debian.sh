@@ -5,7 +5,7 @@ then
   exit 2
 fi
 
-sudo apt-get install -y build-essential libcrypto++-dev libsqlite3-dev libboost-all-dev
+sudo apt-get install -y build-essential libcrypto++-dev libsqlite3-dev libboost-all-dev libssl-dev pkg-config
 
 git clone https://github.com/named-data/ndn-cxx
 cd ndn-cxx
