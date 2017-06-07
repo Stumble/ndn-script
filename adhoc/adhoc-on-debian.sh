@@ -8,9 +8,13 @@ fi
 
 sudo cp -n /etc/network/interfaces /etc/network/interfaces.backup
 
-# randomIp=$(( RANDOM % 255 ))
+randomIp=$(( RANDOM % 255 ))
 
-sudo cp sample-interfaces  /etc/network/interfaces
+cat sample-interfaces | sed "s/LASTIPCOMP/$randomIp/g" > randomInterfaces
+
+sudo cp randomInterfaces  /etc/network/interfaces
+
+rm randomInterfaces
 
 sudo ifdown wlan0
 sudo ifup wlan0
